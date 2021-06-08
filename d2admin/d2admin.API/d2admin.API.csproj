@@ -8,6 +8,9 @@
 	<PropertyGroup>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<OutputType>Library</OutputType>
+		<Version>1.0.1</Version>
+		<Authors>fenglui</Authors>
+		<Company>ttn</Company>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

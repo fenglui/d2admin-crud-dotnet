@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
+using Microsoft.Extensions.Configuration;
 using System;
 
 namespace d2admin.Services
@@ -74,12 +75,12 @@ namespace d2admin.Services
         {
             var optionsBuilder = new DbContextOptionsBuilder<D2AdminServiceContext>();
 
-            String pass = "[]ttn2021#0323`d2";
+            IConfigurationRoot configuration = new ConfigurationBuilder()
+            .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)       
+            .AddJsonFile("appsettings.json")
+            .Build();
 
-            optionsBuilder.UseSqlServer(
-
-                $"Data Source=42.192.223.225,1430;Initial Catalog=HappyNiuD2AdminService;MultipleActiveResultSets=true;Persist Security Info=True;User ID=happyniuwebuser;Password={pass}"
-                );
+            optionsBuilder.UseSqlServer(configuration.GetConnectionString("‌​D2AdminServiceContext"));
 
             return new D2AdminServiceContext(optionsBuilder.Options);
         }
