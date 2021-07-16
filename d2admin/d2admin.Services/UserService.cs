@@ -44,7 +44,18 @@ namespace d2admin.Services
                 Avatar = data.Avatar
             };
             var res = await _userManager.CreateAsync(user, password);
-            return user;
+            if (res.Succeeded)
+            {
+                return user;
+            }
+            if (null != res.Errors && res.Errors.Any())
+            {
+                foreach (var err in res.Errors)
+                {
+                    Console.WriteLine(err.Description);
+                }
+            }
+            return null;
         }
 
         public async Task<bool> UpdateAsync(User data)
@@ -59,21 +70,38 @@ namespace d2admin.Services
                 user.Email = data.Email;
                 user.NormalizedEmail = data.Email.ToUpper();
                 await db.SaveChangesAsync();
+                return true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
             }
             return false;
         }
 
-        public async Task<bool> DeleteAsync(string id)
+        public async Task<bool> DeleteAsync(string id, bool forceDelete = false)
         {
-            var user = await db.Users.FindAsync(id);
-            if (null != user)
+
+            if (forceDelete)
             {
-                user.DelFlag = true;
-                await db.SaveChangesAsync();
-                return true;
+                var user = await _userManager.FindByIdAsync(id);
+                if (null != user)
+                {
+                    var res = await _userManager.DeleteAsync(user);
+
+                    return res.Succeeded;
+                }
+            }
+            else
+            {
+
+                var user = await db.Users.FindAsync(id);
+                if (null != user)
+                {
+                    user.DelFlag = true;
+                    await db.SaveChangesAsync();
+                    return true;
+                }
             }
             return false;
         }
@@ -106,6 +134,7 @@ namespace d2admin.Services
         public async Task<bool> ChangePasswordAsync(string userId, string oldPassword, string password)
         {
             var user = await _userManager.FindByIdAsync(userId);
+
             var res = await _userManager.ChangePasswordAsync(user, oldPassword, password);
             return res.Succeeded;
         }

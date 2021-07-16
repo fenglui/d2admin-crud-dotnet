@@ -102,7 +102,7 @@ namespace d2admin.API.Controllers.V2
 
             Console.WriteLine($"nick { user.NickName }");
 
-            if (String.IsNullOrEmpty(user.Password) == false && String.IsNullOrEmpty(user.OldPassword) == false)
+            if (String.IsNullOrEmpty(user.Password) == false)
             {
                 bool changePasswordSuccess = await _service.ChangePasswordAsync(user.Id, user.OldPassword, user.Password);
 
@@ -117,11 +117,17 @@ namespace d2admin.API.Controllers.V2
         #endregion
 
         #region DELETE
-        //[HttpPost("delete")]
-        //public async Task<bool> Delete(string id)
-        //{
-        //    return await _service.DeleteAsync(id);
-        //}
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet("delete")]
+        public async Task<bool> Delete(string id)
+        {
+            return await _service.DeleteAsync(id);
+        }
         #endregion
 
         /// <summary>
@@ -197,7 +203,8 @@ namespace d2admin.API.Controllers.V2
         public async Task<IActionResult> Auth(string userId, [FromBody] List<string> roleIds)
         {
             var res = await _service.SetUserRoles(userId, roleIds);
-            return Json(new {
+            return Json(new
+            {
                 succeeded = res.Succeeded
             });
         }

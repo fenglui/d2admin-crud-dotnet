@@ -16,7 +16,13 @@ namespace d2admin.Services.Contracts
 
         Task<bool> UpdateAsync(User user);
 
-        Task<bool> DeleteAsync(string id);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="forceDelete">是否物理删除</param>
+        /// <returns></returns>
+        Task<bool> DeleteAsync(string id, bool forceDelete = false);
 
         Task<User> GetAsync(string id);
         PagedList<User> GetListAsync(int page, int limit);
