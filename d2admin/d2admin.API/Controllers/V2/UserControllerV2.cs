@@ -123,9 +123,12 @@ namespace d2admin.API.Controllers.V2
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        [HttpGet("delete")]
+        [HttpPost("delete")]
         public async Task<bool> Delete(string id)
         {
+            if (String.IsNullOrEmpty(id))
+                throw new ArgumentNullException("id");
+
             return await _service.DeleteAsync(id);
         }
         #endregion
