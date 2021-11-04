@@ -114,11 +114,15 @@ namespace d2admin.API.Controllers.V2
             if (file == null)
                 throw new ArgumentNullException("file");
 
+#if DEBUG
+    Console.WriteLine($"Files is { file.Files }");
+#endif
+
             return await _service.UpdateAsync(_mapper.Map<S.CdnFile>(file));
         }
-        #endregion
+#endregion
 
-        #region DELETE
+#region DELETE
 
         /// <summary>
         /// 
@@ -135,7 +139,7 @@ namespace d2admin.API.Controllers.V2
         {
             return await _service.DeleteAsync(id);
         }
-        #endregion
+#endregion
 
         /// <summary>
         /// 
@@ -181,7 +185,7 @@ namespace d2admin.API.Controllers.V2
                         Size = data.PageSize,
                         Total = data.TotalItemCount
                     },
-                    Msg = String.Empty
+                    Msg = string.Empty
                 };
             }
 
@@ -216,7 +220,7 @@ namespace d2admin.API.Controllers.V2
                     token = token,
                     key = key
                 },
-                msg = String.Empty
+                msg = string.Empty
             });
         }
     }

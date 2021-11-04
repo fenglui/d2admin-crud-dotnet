@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Text.Json;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
 
 namespace d2admin.API.DataContracts
 {
@@ -29,7 +24,7 @@ namespace d2admin.API.DataContracts
         /// 
         /// </summary>
         [DataType(DataType.Text)]
-        public String Pictures { get; set; }
+        public string Pictures { get; set; }
 
         /// <summary>
         /// 
@@ -42,5 +37,11 @@ namespace d2admin.API.DataContracts
         /// </summary>
         [DataType(DataType.Text)]
         public string File { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [DataType(DataType.Text)]
+        public string Files { get; set; }
     }
 }
