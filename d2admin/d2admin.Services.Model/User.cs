@@ -11,8 +11,8 @@ namespace d2admin.Services.Model
         [MaxLength(300)]
         public string Avatar { get; set; }
 
-        [MaxLength(256)]
-        public string CallingCode { get; set; }
+        //[MaxLength(256)]
+        //public string CallingCode { get; set; }
 
         public int Gender { get; set; }
 
@@ -22,7 +22,7 @@ namespace d2admin.Services.Model
         public bool DelFlag { get; set; }
 
         [MaxLength(11)]
-        public String Mobile { get; set; }
+        public string Mobile { get; set; }
 
     }
 }
