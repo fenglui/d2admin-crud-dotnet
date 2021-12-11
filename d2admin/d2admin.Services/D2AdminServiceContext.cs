@@ -82,6 +82,22 @@ namespace d2admin.Services
                 Name = "admin",
                 NormalizedName = "ADMIN",
                 ConcurrencyStamp = "354610ba-ab2a-4a34-a8e8-f9ab1c6866e3"
+            },
+            new Role
+            {
+                Id = "a1c8c26d-42eb-4678-bd52-f7d7a95fa396",
+                Code = "merchant",
+                Name = "merchant",
+                NormalizedName = "MERCHANT",
+                ConcurrencyStamp = "4bce4b3d-b1b5-49e0-9dc8-5ac80869614d"
+            },
+            new Role
+            {
+                Id = "cfe104de-05e6-4912-890a-627e2392c5e4",
+                Code = "test",
+                Name = "test",
+                NormalizedName = "TEST",
+                ConcurrencyStamp = "2485a76c-2563-4848-af76-94a3d0640c14"
             }
             );
 
@@ -91,6 +107,7 @@ namespace d2admin.Services
                 Id = "23a1557f-604d-4728-b011-a851da4a307b",
                 NickName = "superadmin",
                 UserName = "sa",
+                NormalizedUserName = "SA",
                 Email = "fenglui@tuotuoniu.com",
                 ConcurrencyStamp = "3ea81291-7aa5-41f0-b8e1-d35009e39821",
                 PasswordHash = "AQAAAAEAACcQAAAAEK39qZGWC5IE9b6nSSOjKiwLJ3RrRO/LGet0KIHuoUeZ5bjaQcZn1o9d67H6ciLGfA==",
@@ -344,7 +361,7 @@ namespace d2admin.Services
         {
             var optionsBuilder = new DbContextOptionsBuilder<D2AdminServiceContext>();
 
-            string cfgFile = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "D2AdminServiceContext.conn");
+            string cfgFile = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "yztD2AdminServiceContext.conn");
             bool appCfgExists = System.IO.File.Exists(cfgFile);
             Console.WriteLine($"D2AdminServiceContext.conn is { appCfgExists }");
             string connStr = string.Empty;
