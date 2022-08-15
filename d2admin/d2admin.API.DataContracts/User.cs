@@ -33,11 +33,11 @@ namespace d2admin.API.DataContracts
         [DataType(DataType.Text)]
         public string Password { get; set; }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        [DataType(DataType.Text)]
-        public string CallingCode { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //[DataType(DataType.Text)]
+        //public string CallingCode { get; set; }
 
         /// <summary>
         /// 

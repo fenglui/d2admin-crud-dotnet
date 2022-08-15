@@ -60,7 +60,7 @@ namespace d2admin.API.Controllers
             var list = await _resourceService.FindResourceTreeByRoleIds(roleIds);
             var roots = list.Where(x => x.ParentId == 0).Select(x =>
 
-                _mapper.Map<ParentUserPermission>(x)).ToList();
+                _mapper.Map<ParentUserPermission>(x)).ToArray();
 
             foreach (var root in roots)
             {

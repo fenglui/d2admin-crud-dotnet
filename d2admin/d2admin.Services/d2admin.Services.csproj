@@ -3,7 +3,7 @@
 	<PropertyGroup>
 		<TargetFramework>net5.0</TargetFramework>
 		<IsPackable>true</IsPackable>
-		<Version>1.1.0</Version>
+		<Version>1.1.2</Version>
 		<Authors>fenglui</Authors>
 		<Company>ttn</Company>
 	</PropertyGroup>
@@ -27,7 +27,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="AutoMapper" Version="10.1.1" />
+		<PackageReference Include="AutoMapper" Version="11.0.1" />
 		<PackageReference Include="Microsoft.Extensions.Options" Version="5.0.0" />
 		<PackageReference Include="ttn.Extensions" Version="1.0.2" />
 	</ItemGroup>

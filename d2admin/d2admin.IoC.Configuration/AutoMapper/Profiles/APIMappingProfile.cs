@@ -12,10 +12,11 @@ namespace d2admin.IoC.Configuration.AutoMapper.Profiles
         public APIMappingProfile()
         {
             CreateMap<DC.User, S.User>().ReverseMap();
+            //CreateMap<PagedList<DC.User>, PagedList<S.User>>().ReverseMap();
+
             CreateMap<DC.Role, S.Role>().ReverseMap();
 
             CreateMap<DC.ParentUserPermission, S.pm_resource>().ReverseMap();
-            CreateMap<PagedList<DC.User>, PagedList<S.User>>().ReverseMap();
             CreateMap<DC.Department, S.Department>().ReverseMap();
 
             CreateMap<DC.CdnFile, S.CdnFile>()

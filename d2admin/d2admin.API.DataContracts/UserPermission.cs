@@ -91,6 +91,6 @@ namespace d2admin.API.DataContracts
         /// 
         /// </summary>
         [JsonPropertyName("children")]
-        public List<ParentUserPermission> Children { get; set; }
+        public virtual List<ParentUserPermission> Children { get; set; }
     }
 }

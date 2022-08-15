@@ -7,7 +7,7 @@
 
 	<PropertyGroup>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
-		<Version>1.1.0</Version>
+		<Version>1.1.2</Version>
 		<Authors>fenglui</Authors>
 		<Company>ttn</Company>
 	</PropertyGroup>
