@@ -7,7 +7,7 @@
 in package manager
 
 ```console
-Install-Package d2admin.API -Version 1.0.1
+Install-Package d2admin.API -Version 1.1.2
 ```
 
 ### modify appsettings.json
